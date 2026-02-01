@@ -47,6 +47,7 @@ int main(void)
         bar.takeDamage(1);
         
         ScavTrap barEqual = bar;
+        barEqual = bar;
         barEqual.takeDamage(1);
         
         ScavTrap guard;
