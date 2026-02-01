@@ -20,7 +20,8 @@ int main(void)
     bar.takeDamage(9);
     bar.takeDamage(1);
 
-    ClapTrap barEqual = bar;
+    ClapTrap barEqual;
+    barEqual = bar;
     barEqual.takeDamage(1);
 
     return 0;
