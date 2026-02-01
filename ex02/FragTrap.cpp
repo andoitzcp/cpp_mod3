@@ -13,7 +13,7 @@ FragTrap::FragTrap(void): ClapTrap()
 
 FragTrap::FragTrap(const std::string name): ClapTrap(name)
 {
-    std::cout << "FlagTrap (" << this->_name << ") constructor called" << std::endl;
+    std::cout << "FragTrap (" << this->_name << ") constructor called" << std::endl;
     this->_hitPoints = 100;
     this->_energyPoints = 100;
     this->_attackDamage = 30;
@@ -26,15 +26,12 @@ FragTrap::FragTrap(const FragTrap& other): ClapTrap(other)
     return ;
 }
 
-FragTrap FragTrap::operator=(const FragTrap& other)
+FragTrap& FragTrap::operator=(const FragTrap& other)
 {
-    std::cout << "FragTrap overload = operator called" << std::endl;
     if (this == &other)
         return *this;
-    this->_name = other._name;    
-    this->_hitPoints = other._hitPoints;
-    this->_energyPoints = other._energyPoints;
-    this->_attackDamage = other._attackDamage;
+    ClapTrap::operator=(other);
+    std::cout << "FragTrap overload = operator called" << std::endl;
     return *this;
 }
 

@@ -1,7 +1,7 @@
 #include "ScavTrap.hpp"
 #include <iostream>
 
-ScavTrap::ScavTrap(void): ClapTrap()
+ScavTrap::ScavTrap(void): ClapTrap(), _isGuardingGate(false)
 {
     std::cout << "ScavTrap default constructor called" << std::endl;
     this->_name = "ScavTrap2000";
@@ -12,7 +12,7 @@ ScavTrap::ScavTrap(void): ClapTrap()
 }
 
 
-ScavTrap::ScavTrap(const std::string name): ClapTrap(name)
+ScavTrap::ScavTrap(const std::string name): ClapTrap(name), _isGuardingGate(false)
 {
     std::cout << "ScavTrap (" << this->_name << ") constructor called" << std::endl;
     this->_hitPoints = 100;
@@ -21,21 +21,19 @@ ScavTrap::ScavTrap(const std::string name): ClapTrap(name)
     return ;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other)
+ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other), _isGuardingGate(other._isGuardingGate)
 {
     std::cout << "ScavTrap copy constructor called" << std::endl;
-    this->_isGuardingGate = other._isGuardingGate;
+    return ;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
-    std::cout << "ScavTrap overload = operator called" << std::endl;
     if (this == &other)
         return (*this);
-    this->_name = other._name;
-    this->_hitPoints = other._hitPoints;
-    this->_energyPoints = other._energyPoints;
-    this->_attackDamage = other._attackDamage;
+    ClapTrap::operator=(other);
+    this->_isGuardingGate = other._isGuardingGate;
+    std::cout << "ScavTrap overload = operator called" << std::endl;
     return *this;
 }
 

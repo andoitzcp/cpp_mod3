@@ -75,7 +75,8 @@ int main(void)
         bar.takeDamage(9);
         bar.takeDamage(1);
         
-        FragTrap barEqual = bar;
+        FragTrap barEqual("Equaltrap");
+        barEqual = bar;
         barEqual.takeDamage(1);
         
         FragTrap h5("Brotrap");

@@ -9,7 +9,7 @@ class FragTrap: public ClapTrap
         FragTrap(void);
         FragTrap(const std::string name);
         FragTrap(const FragTrap& other);
-        FragTrap operator=(const FragTrap& other);
+        FragTrap& operator=(const FragTrap& other);
         ~FragTrap(void);
 
         void higFiveGuys(void) const;
